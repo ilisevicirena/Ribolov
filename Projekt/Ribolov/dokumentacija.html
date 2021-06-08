@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ribolov - Dokumentacija</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/iilisevic.css">
+    </head>
+    <body>
+        <header>Ribolov</header><div align="center"><nav id="meni">
+                <ul><li><a href="index.php">POČETNA</a></li></ul></nav>
+            <section id='sadrzaj'>
+                <article>
+                    <p class="praznaTablica">Opis projektnog zadatka</p>
+                    <p class="tekst">
+                        Sustav služi za kreiranje, prijavu i održavanje natjecanja za ribolov.<br>
+                        <span class="podnaslov">Uloge:</span><br>
+                    <ul class="tekst"><li> Neregistrirani korisnik</li>
+                        <li> Registrirani korisnik/Natjecatelj</li>
+                        <li> Moderator/Organizator</li>
+                        <li> Administrator/Povjerenstvo</li></ul></p>
+                    <p class="tekst">
+                        <span class="podnaslov">Detaljne upute:<br>Administrator</span><br>
+                    <ul class="tekst"><li> Kreira ribički klub i dodjeljuje moderatore klubovima.</li>
+                        <li> Kreira lokacije (Drava, Sava, ….).</li>
+                        <li> Pregledava zahtjeve moderatora, ako ima samo jednog korisnika s najvećim brojem bodova
+                            samo njega može proglasiti pobjednikom. Korisnika se automatski obavještava mailom da je
+                            dobio nagradu. Ako ima više korisnika s jednakim brojem bodova, ima opciju da odabere
+                            pobjednika uz unos opisa zašto je njega odabrao</li>
+                        <li> Pregledava statistike zahtjeva prijava (odobrenih/odbijenih) u nekom razdoblju po ribičkom
+                            klubu uz mogućnost da se odabere klub i onda se dobiju podaci po pojedinoj lokaciji.</li></ul></p>
+
+
+                    <p class="tekst"><span class="podnaslov">Moderator</span><br>
+                    <ul class="tekst">
+                        <li> Kreira natjecanje pri čemu obavezno odabire lokaciju te unosi naziv, opis, početak i kraj
+                            natjecanja</li>
+                        <li> Pregledava i odobrava zahtjeve prijava. Odobren/odbijen zahtjev prijave ima datum i vrijeme
+                            odobravanja/odbijanja. Ako je korisnik već prijavljen u neko drugo natjecanje koje još traje
+                            zahtjev mu se samo može odbiti prijava</li>
+                        <li> Vidi stranicu s informacijom o sudionicima na natjecanjima, gdje unosi bodove sudionicima
+                            nakon završetka natjecanja te šalje zahtjev za proglašenjem pobjednika administratoru.</li>
+                    </ul></p>
+
+                    <p class="tekst"><span class="podnaslov">Registrirani korisnik</span><br>
+                    <ul class="tekst">
+                        <li> Kreira zahtjev prijave na natjecanje uz prilaganje svoje slike. Dobiva bodove na temelju
+                            kvalitete i količine podataka ispunjenog zahtjeva (naziv, opis, …).</li>
+                        <li> Pregledava zahtjeve prijava na natjecanju sa statusom (prihvaćen, odbijen).</li>
+                        <li> Pregledava natjecanja na kojima sudjeluje zajedno sa popisom ostalih sudionika. Vidi stranicu
+                            sa svojim ostvarenim rezultatima.</li></ul></p>
+
+
+                    <p class="tekst"><span class="podnaslov">Neregistrirani korisnik</span> 
+                    <ul class="tekst">
+                        <li> Može pretraživati natjecanja uz mogućnost filtriranja po ribičkom klubu. Svaki element ima
+                            dvije poveznice na klub i natjecanje</li>
+                        <li>Vidi informacije o natjecanju sa slikom pobjednika ako on postoji.</li>
+                        <li>Vidi informacije o klubu.</li></ul></p>
+
+
+                    <p class="praznaTablica">Opis projektnog rješenja</p>
+                    <p class="tekst">Rješenje ove problematike se razvijalo postepeno prateći upute koje su mi bile zadane u projektnom zadatku, nakon rješavanja osnovnog 'kostura' weba (zaglavlje,podnožje,početna,parking), krenuo sam u dodavanje kompliciranije dijela projekta vezan za prsitup skriptama za 
+                        svaku pojedinu ulogu sustava. Nakon grubog dodavanja odgovarajućih stripti i dodavanja prava pristupa tim skriptama, prešla sam na doradu sitnih nedostatanaka koje sam svako malo uočavala testirajući napravljenu aplikaciju.
+                        U nastavku slijedi detaljan opis mog projektnog rješenja za aplikaciju za organiziranje i praćenje natjecanja u ribolovu.</p>
+                    <p class="praznaTablica">ERA model</p>
+                    <a href="img/era.png" target="_blank">
+                        <img src="img/era.png" alt="ERA dijagram" width="658" height="427" /></a>
+                    <p class="praznaTablica">Struktura direktorija i korištene skripte</p>
+                    <p class="tekst"><span class="podnaslov">CSS</span> </p>
+                    <ul class="tekst">
+                        <li>iilisevic.css - sadrži stilske upute korištene u cijelom projektu </li>
+                    </ul>
+                    <p class="tekst"><span class="podnaslov">JS</span> </p>
+                    <ul class="tekst">
+                        <li>hrvatski.txt - skripta za uporabu DataTables na hrvatskome jeziku </li>
+                        <li>iilisevic.js - koristi se za uključvanje DataTables mogućnosti na pojedine tablice projekta </li>
+                        <li>jqRegistracija.js - jQuery, koristi se pri registaciji i promjeni podataka gdje se provjerava jesu li podaci uneseni u odgovarajućem obliku </li>
+
+                    </ul>                   
+                    <p class="tekst"><span class="podnaslov">HTML</span> </p>
+                    <ul class="tekst">
+                        <li>index.html - sadrži usmjeravanje na index.php tj. početak projektnog rješenja </li>
+                        <li>dokumentacija.html - sadrži dokumentaciju vezanu za ovaj projekt </li>
+                    </ul>   
+
+                    <p class="tekst"><span class="podnaslov">PHP</span> </p>
+                    <ul class="tekst">
+                        <li>_header.php - iniciranje i učitavanje Smarty predloška _header.tpl</li>
+                        <li>_navigacija.php - dinamičko kreiranje izbornika ovisno o vrsti prijave, učitava _navigacija.tpl</li>
+                        <li>index.php - početna stranica ove web aplikacije, sadrži poruku dobrodošlice preko svog predloška</li>
+
+                        <li>_poruka.php - učitava predložak i dodaje mu poruku za ispis</li>
+                        <li>aktivacija.php - koristi se za aktivaciju korisničkog računa</li>
+                        <li>aktiviraj_korisnika.php - koristi se za aktiviranje zaključanog korisničkog računa od strane administratora sustava</li>
+                        <li>blokiraj_korisnika.php - koristi se za blokiranje korisnika od strane administratora sustava</li>
+                        <li>odblokiraj_korisnika.php - koristi se za odblokiravanje blokiranih korisnika od strane administratora sustava</li>
+                        <li>delete_klub.php - koristi se za brisanje ribičkog kluba od strane administratora sustava</li>
+                        <li>delete_korisnik.php - omogućava brisanje korisnika od strane administratora sustava</li>
+                        <li>delete_lokacija.php - koristi se za brisanje lokacija od strane administratora sustava</li>
+                        <li>delete_moderator.php - omogućava uklanjanje moderatora za odabrani ribički klub od strane administratora</li>
+                        <li>delete_natjecanje.php - omogućava moderatoru i administratoru sustava brisanje natjecanja</li>
+                        <li>delete_pobjednik.php - daje mogućnost administratoru sustava brisanje pobjednika za odabrano natjecanje</li>
+                        <li>delete_prijava.php - omogućava administratoru sustava brisanje odabrane prijave na natjecanje</li>
+                        <li>delete_zahtjev.php - daje mogućnost brisanja zahtjeva za natjecanje moderatoru i administratoru sustava</li>
+                        <li>dodaj_klub.php - omogućava administratoru sustava kreiranje novog ribičkog kluba </li>
+                        <li>dodaj_lokaciju.php - koristi se za dodavanje nove lokacije od strane administratora sustava </li>
+                        <li>dodaj_natjecanje.php - omogućava kreiranje novoga natjecanja moderatoru i administratoru sustava</li>
+                        <li>dodijeli_bodove.php - omogućava pregled natjecatelja i njihovih bodova na natjecanjima koja nemaju proglašenoga
+                            pobjednika, uvid je moguć za uloge moderatora i administratora sustava</li>
+                        <li>dodijeli_bodove_korisniku.php omogućava dodjeljivanje bodova odabranom natjecatelju,
+                            bodove mogu dodjeljivati moderator i administrator sustava</li>
+                        <li>dodijeli_moderatora.php - omogućava administratoru sustava da dodijeli moderatora za odabrani ribički klub</li>
+                        <li>edit_klub.php - nudi administratoru sustava mogućnost uređivanja postojećih podataka za odabrani ribički klub</li>
+                        <li>edit_korisnik.php - nudi administratoru sustava mogućnost uređivanja postojećih podataka o odabranom korisniku uključujući i promjenu 
+                            njegove uloge u sustavu (dodjeljivanje uloge moderatora ili administratora)</li>
+                        <li>edit_lokacija.php - služi za promjenu postojećih podataka o odabranoj lokaciji za ulogu administratora sustava</li>
+                        <li>edit_moderator.php - omogućava administratoru sustava promjenu moderatora za odabrani ribički klub</li>
+                        <li>edit_natjecanje.pho - koristi se za promjenu postojećih podataka o natjecanju od strane moderatora ili administratora sustava</li>
+                        <li>edit_pobjednik.php - koristi se za promjenu podataka o pobjedniku na natjecanju od strane administratora sustava</li>
+                        <li>edit_prijava.php - nudi mogućnost promjene podataka o prijavi na natjecanje od strane administratora sustava</li>
+                        <li>edit_zahtjev.php - omogućava administratoru sustava promjenu podataka o zahtjevu za pobjednika</li>
+                        <li>editiraj.php - omogućava registriranom korisniku promjenu podataka o vlastitom korisničkom računu</li>
+                        <li>greske.php - učitava predložak i ovisno o grešci ispisuje odgovarajuću poruku</li>
+                        <li>klubovi.php - sadrži pregled podataka o svim ribičkim klubovima</li>
+                        <li>lokacije.php - sadrži pregled podataka o svim lokacijama</li>
+                        <li>moderatori.php - sadrži podatke o tome koji je moderator dodijeljen kojem ribičkom klubu</li>
+                        <li>moja_natjecanja.php - omogućava prijavljenom korisniku uvid u njegova natjecanja i postignute rezultate</li>
+                        <li>moje_prijave.php - omogućava prijavljenom korisniku uvid u njegove prijave na natjecanja te statuse prijava</li>
+                        <li>natjecanja.php - sadrži podatke o svim natjecanjima</li>
+                        <li>novi_zahtjev_za_pobjednikom.php - omogućava moderatoru automatsko kreiranje zahtjeva za pobjednikom na odabranom
+                            natjecanju po najvećem postignutom broju bodova</li>
+                        <li>odbij_prijavu.php - koristi se za odbijanje prijave na natjecanje od strane moderatora ili administratora sustava</li>
+                        <li>odbij_zahtjev.php - koristi se za odbijanje zahtjeva za pobjednikom od strane administratora sustava</li>
+                        <li>pobjednici.php - sadrži podatke o svim pobjednicima na natjecanjima</li>
+                        <li>postavke.php - sadrži putanje za konfiguriranje sustava ili resetiranje uvjeta korištenja od strane administratora sustava</li>
+                        <li>prihvati_prijavu.php - koristi se za prihvaćanje prijave na natjecanje od strane moderatora ili administratora sustava </li>
+                        <li>prihvati_zahtjev.php - koristi se za prihvaćanje zahtjeva za pobjednikom od strane administratora sustava</li>
+                        <li>prijava_na_natjecanje.php - omogućava prijavljenom korisniku prijavu na odabrano natjecanje</li>
+                        <li>prijave.php - sadrži podatke o svim prijavama na natjecanja</li>
+                        <li>profil.php - omogućava prijavljenom korisniku pregled i uređivanje podataka o sebi</li>
+                        <li>resetriraj_uvjete.php - nudi mogućnost aministratoru sustava da resetira uvjete korištenja te se korisnicima šalje 
+                            obavijest na e-mail o ponovnom prihvaćanju uvjeta korištenja</li>
+                        <li>uvjeti_koristenja.php - obaviještava korisnika o prihvaćanju uvjeta korištenja</li>
+                        <li>zahtjev_za_pobjednikom.php - omogućava kreiranje novog zahtjeva</li>
+                        <li>zahtjevi_na_cekanju.php - prikazuje sve zahtjeve za pobjednikom koji još nisu prihvaćeni ili odbijeni</li>
+                        <li>zahtjevi_za_aktivaciju.php - prikazuje sve zahtjeve za aktivaciju koji nisu procesuirani</li>
+                        <li>zahtjevi_za_pobjednikom.php - sadrži podatke o svim zahtjevima za pobjednikom</li>
+                        <li>zahtjevi_za_prijavu.php - sadrži podatke o prijavama za natjecanje koje još nisu prihvaćene ili odbijene</li>
+                        <li>konfiguracija.php - stranica kojoj pristupa samo administrator sustava i može mjenjati konfiguraciju sustava</li>
+                        <li>korisnici.php - ispis podataka o korisnicima koju vidi samo administrator sustava i ima razne dozvole nad tim računima</li>
+                        <li>odjava.php - omogućuje odjavu iz sustava</li>
+                        <li>dnevnik.php - sadrži tabelarni ispis log sustava koji može vijdeti samo administrator sustava</li>
+                        <li>prijava.php - sadrži funkcionalnosti vezane uz prijavu u sustav</li>
+                        <li>registracija.php - učitava predložak za registraciju i provjerava validsnost unosa</li>
+                        <li>zaboravljena.php - sadrži funkcionalnosti vezane uz zaboravljenu lozinku i način povratka iste</li>
+
+
+                        <li>privatno</li>
+                        <ul class="tekst">
+                            <li>korisnici.php - ispis svih korisnika sustava, zaštićen pristup htaccessom </li>
+                            <li>.htaccess - omogućava zaštićen pristup do direktorija privatno</li>
+                            <li>.htpasswd - omogućava zaštićen pristup do direktorija privatno </li>
+                        </ul>
+                        <li>klase</li>
+                        <ul class="tekst">
+                            <li>baza.php - klasa koja se koristi za pristup i u konačnici rad s bazom podataka</li>
+                            <li>dnevnik.php - sadrži fukncije za unos podataka o radu sustava i akcijama korisnika</li>
+                            <li>mogucnost.php - sadrži funkcije za dohvat konfiguracijskih podataka sustava</li>
+                            <li>sesija.php - skripta koja se koristi u svim datotekama, a sadrži funkcije za provjeru prijave</li>
+                        </ul>
+                    </ul>                       
+                    <p class="tekst"><span class="podnaslov">TPL i direktorij predlosci</span> </p>
+                    <ul class="tekst">
+                        <li>_footer.tpl - predložak za sekciju podnožja korišten na svim stranicama </li>
+                        <li>_header.tpl - predložak za sekciju zaglavlja korišten na svim stranicama </li>
+                        <li>_navigacija.tpl - predložak za sekciju navigacija korišten na svim stranicama </li>
+
+                        <li>edit_profil.tpl - predložak za promjenu korisničkih podataka </li>
+                        <li>index.tpl - predložak za početnu stranicu </li>
+                        <li>dodaj_klub.tpl - predložak za dodavanje novog ribičkog kluba</li>
+                        <li>dodaj_klub_.tpl - predložak za izmjenu podataka o ribičkom klubu </li>
+                        <li>dodaj_lokaciju.tpl - predložak za dodavanje i izmjenu podataka o lokaciji</li>
+                        <li>dodaj_moderatora.tpl - predložak za dodjeljivanje moderatora ribičkom klubu </li>
+                        <li>dodaj_natjecanje.tpl - predložak za dodavanje i izmjenu podataka o natjecanju</li>
+                        <li>edit_klub.tpl - predložak za izmjenu podataka o odabranom ribičkom klubu</li>
+                        <li>edit_moderator.tpl - predložak za promjenu moderatora za odabrani ribički klub</li>
+                        <li>edit_pobjednik.tpl - predložak za promjenu podataka o pobjedniku natjecanja</li>
+                        <li>edit_prijava.tpl - predložak za izmjenu podataka o prijavi na natjecanje</li>
+                        <li>edit_zahtjev.tpl - predložak za izmjenu podataka o zahtjevu za pobjednikom na natjecanju</li>
+                        <li>postavke.tpl - predložak za konfiguraciju postavki sustava</li>
+                        <li>prihvati_prijavu.tpl - predložak za unos bodova za prijavu na natjecanje</li>
+                        <li>prihvati_zahtjev.tpl - predložak za unos opisa zašto je određeni korisnik odabran za pobjednika na natjecanju</li>
+                        <li>prijava_na_natjecanje.tpl - predložak za popunjavanje prijave na natjecanje</li>
+                        <li>profil.tpl - predložak za prikazivanje informacija o profilu prijavljenog korisnika</li>
+                        <li>registracija_1.tpl - predložak kojim administrator mijenja podatke o korisniku</li>
+                        <li>ssp.tpl - predložak za sortiranje i pretraživanje dnevnika</li>
+                        <li>ssp_sve.tpl - predložak za sortiranje podataka na svim stranicama</li>
+                        <li>poruka.tpl - predložak za ispis poruke korisniku ili prikaz nekih podatka </li>
+                        <li>prijava.tpl - predložak za prijavu u sustav </li>
+                        <li>registracija.tpl - predložak za unos podataka za registraciju </li>
+                        <li>zaboravljena.tpl - predložak za dohvat zaboravljene lozinke </li>
+                    </ul>                     
+                    <p class="praznaTablica">Navigacijski dijagram</p>
+                    <a href="img/navigacijski_dijagram.png" target="_blank">
+                        <img src="img/navigacijski_dijagram.png" alt="Navigacijski dijagram" width="700" /></a>
+                    <p class="praznaTablica">Popis alata i tehnologija</p>
+                    <p class="tekst"><span class="podnaslov">Korišteni alati:</span> </p>
+                    <ul class="tekst">
+                        <li>Netbeans</li>
+                        <li>phpMyAdmin</li>
+                        <li>Mozilla Firefox</li>
+                        <li>MySql Workbench</li>
+                        <li>Google Chrome</li>
+                        <li>Notepad ++</li>
+                        <li>draw.io</li>
+                        <li>Paint</li>
+                    </ul>
+                    <p class="tekst"><span class="podnaslov">Korištene tehnologije:</span> </p>
+                    <ul class="tekst">
+                        <li>HTML 5</li>
+                        <li>PHP</li>
+                        <li>CSS</li>
+                        <li>JavaScript - jQuery</li>
+                        <li>Smarty</li>
+                        <li>MySql</li>
+                    </ul>
+                    <p class="praznaTablica">Korištene vanjske biblioteke</p>
+                    <p class="tekst"><span class="podnaslov">jQuery</span><ul class="tekst">
+                        <li>Lokacija: http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js</li>
+                        <li>Opis: vanjska biblioteka za korištenje dodatka za JavaScript </li></ul>
+                    </p>
+                    <p class="tekst"><span class="podnaslov">DataTables</span><ul class="tekst">
+                        <li>Lokacija: https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js</li>
+                        <li>Opis: vanjska biblioteka za korištenje DataTables </li></ul>
+                    </p>
+                    <p class="tekst"><span class="podnaslov">recaptcha</span><ul class="tekst">
+                        <li>Lokacija: https://www.google.com/recaptcha/api.js\</li>
+                        <li>Opis: vanjska biblioteka za provjeru kontrolnog niza znakova za sprečavanje automata</li></ul>
+                    </p> 
+                    <p class="tekst"><span class="podnaslov">Smarty</span><ul class="tekst">
+                        <li>Lokacija: Smarty/...</li>
+                        <li>Opis: vanjske biblioteke za korištenje predložaka u projektu</li></ul>
+                    </p> 
+                </article>
+            </section>
+            &nbsp;</div><footer id="footer">
+            <address>
+                Kontaktirajte me: <br><a href="mailto:iilisevic@foi.hr">Irena Ilišević</a>
+            </address>
+            <p>
+                <small>Web dizajn i programiranje, 2019.</small>
+            </p>
+        </footer>
+    </body>
+</html>            
